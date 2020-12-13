@@ -1,9 +1,10 @@
 var readlineSync = require('readline-sync');
 var score = 0;
+const chalk = require('chalk');
 
-console.log('Hi, welcome to the game - "Do you know Dheeraj", Whats your name? \n');
+console.log(chalk.red.bgGreen('Hi, welcome to the game - "Do you know Dheeraj", Whats your name? \n'));
 var name = readlineSync.question();
-console.log(`\nHi ${name}, welcome to the game, lets start the quiz \n`);
+console.log(chalk.blue.bgRed.bold(`\nHi ${name}, welcome to the game, lets start the quiz \n`));
 
 
 
@@ -13,9 +14,9 @@ function play(question,answer){
     console.log("RIGHT!");
     score = score + 1;
   }else {
-    console.log("You dont know me :/ !")
+    console.log(chalk.yellow("You dont know me :/ !"))
   }
-  console.log("Your current score is: ",score);
+  console.log(chalk.green("Your current score is: ",score));
   }
 
 
@@ -41,4 +42,4 @@ for (var i =0;i<questions.length;i++){
   play(currentQuestion.question,currentQuestion.answer);
 }
 
-console.log("YAY! Your final score is: ",score,"/ 3")
+console.log(chalk.red("YAY! Your final score is: ",score,"/ 3"))
